@@ -1,1 +1,2 @@
-# reactExam
+technologijos, react egzaminas
+Darius Jomantas
