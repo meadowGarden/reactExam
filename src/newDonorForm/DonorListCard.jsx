@@ -5,7 +5,7 @@ import "./DonorListCard.css";
 
 export const DonorContext = createContext();
 
-const DonorListCard = ({ donor, clickRemove, clickMore }) => {
+const DonorListCard = ({ donor, clickRemove}) => {
   const { firstName, lastName, age, gender, bloodGroup } = donor;
 
   const [donorC, setDonorC] = useState(donor);
@@ -27,14 +27,14 @@ const DonorListCard = ({ donor, clickRemove, clickMore }) => {
             remove donor
           </Button>
 
-          <DonorContext.Provider value={{ donorC, donorInfo }}>
+          {/* <DonorContext.Provider value={{ donorC, donorInfo }}> */}
             <Button
-              onClick={() => clickMore(donor)}
+              // onClick={() => clickMore(donor)}
               className="donorListCardButton"
             >
               detailed info
             </Button>
-          </DonorContext.Provider>
+          {/* </DonorContext.Provider> */}
         </Card.Body>
       </Card>
     </>

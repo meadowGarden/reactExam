@@ -13,7 +13,7 @@ const DonorInfo = () => {
     <>
       <div className="pageInfoContainer">
         <h1>detailed donor info</h1>
-        <DetailedDonorCard donor={donorC} />
+        {/* <DetailedDonorCard donor={donorC} /> */}
       </div>
     </>
   );

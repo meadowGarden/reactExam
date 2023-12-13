@@ -82,10 +82,10 @@ const NewDonorForm = () => {
   }; 
 
 
-  const expandDonor = (donor) => {
-    console.log("w/context", donor);
-    navigate("/donorinfo")
-  }
+  // const expandDonor = (donor) => {
+  //   console.log("w/context", donor);
+  //   navigate("/donorinfo")
+  // }
 
   const donorsToDisplay = donorsArr.map((donor) => {
     return (
@@ -93,7 +93,7 @@ const NewDonorForm = () => {
         key={donor.id}
         donor={donor}
         clickRemove={removeDonor}
-        clickMore={expandDonor}
+        // clickMore={expandDonor}
       />
     );
   });
