@@ -5,6 +5,7 @@ import DonorListCard from "./DonorListCard";
 
 const NewDonorForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [newDonor, setNewDonor] = useState(); //
   const [donorsArr, setDonorsArr] = useState([]);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -28,34 +29,46 @@ const NewDonorForm = () => {
     return <div>data is loading, please wait...</div>;
   }
 
-
-
   const handleForm = (event) => {
-    // console.log("event", event);
     setFormData((prevFormData) => ({
       ...prevFormData,
       [event.target.name]: event.target.value,
     }));
-
-    // if (formData.name.length < 5) {
-    //   setInputError("enter more than 10 symbols");
-    // } else {
-    //   setInputError(false);
-    // }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newDonor = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      age: formData.age,
+      gender: formData.gender,
+      bloodGroup: formData.bloodGroup,
+    };
+    sendDataToBackend(newDonor);
+    setIsLoading(true);
+    setDonorsArr([...donorsArr, newDonor]);
+  };
+
+  const sendDataToBackend = ({ newDonor }) => {
+    axios
+      .post("https://dummyjson.com/users/add", newDonor)
+      .then((response) => {
+        setNewDonor(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const donorsToDisplay = donorsArr.map((donor) => {
-    return (
-        <DonorListCard key={donor.id} donor={donor}/>
-    );
+    return <DonorListCard key={donor.id} donor={donor} />;
   });
 
   return (
     <>
       <div className="pageContainer">
         <h1 className="titleFormPage">donor registration form</h1>
-        <form className="donorRegistrationForm">
+        <form onSubmit={handleSubmit} className="donorRegistrationForm">
           <label>first name</label>
           <input
             required
@@ -104,7 +117,7 @@ const NewDonorForm = () => {
               <option value="AB(IV)">O(IV)</option>
             </select>
           </label>
-          <button>submit</button>
+          <button className="donorRegistrationFormButton">submit</button>
 
           <p>{formData.firstName}</p>
           <p>{formData.lastName}</p>
@@ -112,9 +125,7 @@ const NewDonorForm = () => {
           <p>{formData.gender}</p>
           <p>{formData.bloodGroup}</p>
         </form>
-        <div className="donorList">
-            {donorsToDisplay}
-        </div>
+        <div className="donorList">{donorsToDisplay}</div>
       </div>
     </>
   );

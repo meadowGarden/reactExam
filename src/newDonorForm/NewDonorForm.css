@@ -1,6 +1,11 @@
 .donorRegistrationForm {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr;  
+}
+.donorRegistrationFormButton {
+  background-color: #d0edb4;
+  width: 25%;
+  margin: 0.5rem;
 }
 
 .donorList {

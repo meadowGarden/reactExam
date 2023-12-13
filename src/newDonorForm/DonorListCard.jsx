@@ -14,7 +14,8 @@ const DonorListCard = ({ donor }) => {
           </strong>
           , age: {age}, {gender}, blood group <strong> {bloodGroup}</strong>
         </Card.Text>
-        <Button className="donorListCardButton">idėti trynimą</Button>
+        <Button className="donorListCardButton">įdėti trynimą</Button>
+        <Button className="donorListCardButton">peržiūtėi išsamiau</Button>
       </Card.Body>
     </Card>
   );
