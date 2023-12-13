@@ -1,20 +1,19 @@
 import DetailedDonorCard from "./DetailedDonorCard";
 import "./DonorInfo.css"
+import { DonorContext } from "../newDonorForm/DonorListCard";
 
 const DonorInfo = () => {
-  const dummy = {
-    firstName: "a",
-    lastName: "b",
-    age: 34,
-    gender: "female",
-    bloodGroup: "ab",
-  };
+  
+  const {donorC, setDonorC} = DonorContext;
+  console.log("DonorContext", DonorContext);
+
+  
 
   return (
     <>
       <div className="pageInfoContainer">
         <h1>detailed donor info</h1>
-        <DetailedDonorCard donor={dummy} />
+        <DetailedDonorCard donor={donorC} />
       </div>
     </>
   );

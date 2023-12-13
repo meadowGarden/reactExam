@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import "./NewDonorForm.css";
 import DonorListCard from "./DonorListCard";
+import { useNavigate } from "react-router-dom";
+import { DonorContext } from "../newDonorForm/DonorListCard";
 
 const NewDonorForm = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [newDonor, setNewDonor] = useState(); //
   const [donorsArr, setDonorsArr] = useState([]);
@@ -76,11 +79,13 @@ const NewDonorForm = () => {
         // setIsLoading(false);
       })
       .catch((error) => console.log(error));
-  };
+  }; 
+
 
   const expandDonor = (donor) => {
-    navigate("/donorinfo");
-  };
+    console.log("w/context", donor);
+    navigate("/donorinfo")
+  }
 
   const donorsToDisplay = donorsArr.map((donor) => {
     return (

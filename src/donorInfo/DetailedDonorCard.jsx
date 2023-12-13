@@ -20,7 +20,7 @@ const DetailedDonorCard = ({ donor }) => {
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Text>
-            {firstName} {lastName}
+            <strong>{firstName} {lastName}</strong>
           </Card.Text>
           <Card.Text>
             birth date: {birthDate}, gender: {gender}

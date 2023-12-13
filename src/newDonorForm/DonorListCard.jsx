@@ -1,9 +1,14 @@
+import { createContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./DonorListCard.css";
 
+export const DonorContext = createContext();
+
 const DonorListCard = ({ donor, clickRemove, clickMore }) => {
   const { firstName, lastName, age, gender, bloodGroup } = donor;
+
+  const [donorC, setDonorC] = useState(donor);
 
   return (
     <>
@@ -21,12 +26,15 @@ const DonorListCard = ({ donor, clickRemove, clickMore }) => {
           >
             remove donor
           </Button>
-          <Button
-            onClick={() => clickMore(donor)}
-            className="donorListCardButton"
-          >
-            detailed info
-          </Button>
+
+          <DonorContext.Provider value={{ donorC, donorInfo }}>
+            <Button
+              onClick={() => clickMore(donor)}
+              className="donorListCardButton"
+            >
+              detailed info
+            </Button>
+          </DonorContext.Provider>
         </Card.Body>
       </Card>
     </>

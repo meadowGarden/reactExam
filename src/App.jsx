@@ -4,6 +4,7 @@ import DonorInfo from "./donorInfo/DonorInfo";
 import Homepage from "./homepage/Homepage";
 import NewDonorForm from "./newDonorForm/NewDonorForm";
 import NavBar from "./navbar/NavBar";
+import { DonorContext } from "./newDonorForm/DonorListCard";
 // import "./App.css";
 
 function App() {
@@ -14,7 +15,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/registration" element={<NewDonorForm />} />
         <Route path="/donorinfo" element={<DonorInfo />} />
-        {/* <Route path="/*" element={<PageNotFound />} /> */}
       </Routes>
     </>
   );
