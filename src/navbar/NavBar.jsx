@@ -10,7 +10,8 @@ const NavBar = () => {
         <Link />
         <Navbar.Brand href="/">home</Navbar.Brand>
         <Nav className="me-auto">
-          {/* <Nav.Link href="/basiccomponent">2.1</Nav.Link> */}
+          <Nav.Link href="/registration">registration</Nav.Link>
+          <Nav.Link href="/donorinfo">donor info</Nav.Link>          
         </Nav>
       </Container>
     </Navbar>
