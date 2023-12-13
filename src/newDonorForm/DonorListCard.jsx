@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./DonorListCard.css";
 
-const DonorListCard = ({ donor }) => {
+const DonorListCard = ({ donor, clickRemove}) => {
   const { firstName, lastName, age, gender, bloodGroup } = donor;
 
   return (
@@ -14,7 +14,12 @@ const DonorListCard = ({ donor }) => {
           </strong>
           , age: {age}, {gender}, blood group <strong> {bloodGroup}</strong>
         </Card.Text>
-        <Button className="donorListCardButton">įdėti trynimą</Button>
+        <Button
+          onClick={() => clickRemove(donor)}
+          className="donorListCardButton"
+        >
+          remove donor
+        </Button>
         <Button className="donorListCardButton">peržiūtėi išsamiau</Button>
       </Card.Body>
     </Card>

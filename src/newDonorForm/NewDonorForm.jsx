@@ -45,12 +45,12 @@ const NewDonorForm = () => {
       gender: formData.gender,
       bloodGroup: formData.bloodGroup,
     };
-    sendDataToBackend(newDonor);
+    sendNewDonor(newDonor);
     setIsLoading(true);
     setDonorsArr([...donorsArr, newDonor]);
   };
 
-  const sendDataToBackend = ({ newDonor }) => {
+  const sendNewDonor = ({ newDonor }) => {
     axios
       .post("https://dummyjson.com/users/add", newDonor)
       .then((response) => {
@@ -60,8 +60,33 @@ const NewDonorForm = () => {
       .catch((error) => console.log(error));
   };
 
+  const removeDonor = (donor) => {
+    const updatedDonorArr = donorsArr.filter(
+      (donorIn) => donor.id !== donorIn.id
+    );
+    // setIsLoading(true);
+    sendRemoveDonor(donor);
+    setDonorsArr([...updatedDonorArr]);
+  };
+  const sendRemoveDonor = (donor) => {
+    axios
+      .delete(`https://dummyjson.com/users/${donor?.id}`, {donor})
+      .then((response) => {
+        console.log(response);
+        // setIsLoading(false);
+      })
+      .catch((error) => console.log(error));
+  };
+
+
+
+
+
+
+
+
   const donorsToDisplay = donorsArr.map((donor) => {
-    return <DonorListCard key={donor.id} donor={donor} />;
+    return <DonorListCard key={donor.id} donor={donor} clickRemove={removeDonor}/>;
   });
 
   return (
@@ -118,12 +143,6 @@ const NewDonorForm = () => {
             </select>
           </label>
           <button className="donorRegistrationFormButton">submit</button>
-
-          <p>{formData.firstName}</p>
-          <p>{formData.lastName}</p>
-          <p>{formData.age}</p>
-          <p>{formData.gender}</p>
-          <p>{formData.bloodGroup}</p>
         </form>
         <div className="donorList">{donorsToDisplay}</div>
       </div>
