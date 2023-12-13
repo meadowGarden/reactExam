@@ -1,0 +1,24 @@
+.pageHomepageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #b4cfec;
+  padding: 2rem;
+}
+
+.pageHomepageContainerPic {
+  width: 100%;
+}
+
+.registerButton {
+  color: #8b0000;
+  background-color: #edb4d0;
+}
+.registerButton:hover {
+  background-color: #d0edb4;
+}
+
+.donorListCardButton {
+  border: none;
+  color: #8b0000;
+  background-color: #d0edb4;
+}

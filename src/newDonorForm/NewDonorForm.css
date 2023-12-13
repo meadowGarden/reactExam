@@ -1,10 +1,18 @@
+.formContainer {
+  padding: 2rem;
+}
 .donorRegistrationForm {
   display: grid;
-  grid-template-columns: 1fr;  
+  grid-template-columns: 1fr;
+  width: 50%;
 }
+.donorRegistrationFormInput {
+  margin: 0.5rem;
+}
+
 .donorRegistrationFormButton {
   background-color: #d0edb4;
-  width: 25%;
+  width: 10rem;
   margin: 0.5rem;
 }
 
@@ -14,7 +22,7 @@
   gap: 1rem;
 }
 
-.pageContainer {
+.pageFormContainer {
     background-color: #B4CFEC;
     padding: 2rem;
 }
