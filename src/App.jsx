@@ -1,9 +1,13 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Homepage from "./assets/homepage/Homepage";
 // import "./App.css";
 
 function App() {
   return (
-    <>
+    <> 
+
+
+      <Homepage/>
       <div>
         <h1>title</h1>
       </div>
