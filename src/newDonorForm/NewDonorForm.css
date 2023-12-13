@@ -1,0 +1,32 @@
+.donorRegistrationForm {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.donorList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.pageContainer {
+    background-color: #B4CFEC;
+    padding: 2rem;
+}
+
+.titleFormPage {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1480px) {
+  .donorList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .donorList {
+    grid-template-columns: 1fr;
+  }
+}

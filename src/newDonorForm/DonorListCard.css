@@ -1,0 +1,12 @@
+.donorListCard {
+  background-color: #d0edb4;
+}
+
+.donorListCardButton {
+  border: none;
+  color: #8b0000;
+  background-color: #d0edb4;
+}
+.donorListCardButton:hover {
+  background-color: #db5050;
+}
